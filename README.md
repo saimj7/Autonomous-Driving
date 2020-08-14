@@ -34,43 +34,43 @@ Building autonomous vehicles from the ground up!
 
 > Parameters:
 
-•	rho and theta - distance (pixels) and angular resolution (degrees) of our grid in Hough Space. Reasonable values are 1 for both and however, tuning is recommended.
-•	threshold - it specifies the minimum number of votes (intersections in a given grid cell) a candidate line needs to have to make it into the output.
-•	min_line_length - is the minimum length of a line (pixels) that we accept in the output.
-•	max_line_gap - is the maximum distance (pixels) between segments that we allow to be connected into a single line.
+- rho and theta - distance (pixels) and angular resolution (degrees) of our grid in Hough Space. Reasonable values are 1 for both and however, tuning is recommended.
+- threshold - it specifies the minimum number of votes (intersections in a given grid cell) a candidate line needs to have to make it into the output.
+- min_line_length - is the minimum length of a line (pixels) that we accept in the output.
+- max_line_gap - is the maximum distance (pixels) between segments that we allow to be connected into a single line.
 
 ## 5.	Averaging and Extrapolating the Lane Lines | Improving the draw_lines function: 
 
 The output from Hough Transform is shown below which is just a plot with small lines. We need to map out the full picture (full extent of the line till the end) for our Self-Driving car to better help in sensing. This is where averaging/extrapolating the lines comes into action!
 
-> draw_lines function: To extrapolate the lines, the following modifications has been done in the draw_lines function:
+> draw_lines function: To extrapolate the lines, the following modifications have been done:
 
-•	First, we define the empty lists to work with (as seen in code and references).
-•	Then we separate the small lines x and y into two groups to find out if they belong to left or right part of the image.
-•	By considering the slope of the line equation, (𝑦2 − 𝑦1)/(𝑥2 − 𝑥1), We consider values from left or right parts depending on the slope is positive or negative.
-•	We then use polyfit function to fit a line to these points.
-•	We now take average of slope and intercept line and derive upper and lower parts of the image (as seen in code).
-•	Finally, we plot the single solid line on both the lanes as output. Some of the examples are shown below:
+- First, we define the empty lists to work with (as seen in code and references).
+- Then we separate the small lines x and y into two groups to find out if they belong to left or right part of the image.
+- By considering the slope of the line equation, (𝑦2 − 𝑦1)/(𝑥2 − 𝑥1), We consider values from left or right parts depending on the slope is positive or negative.
+- We then use polyfit function to fit a line to these points.
+- We now take average of slope and intercept line and derive upper and lower parts of the image (as seen in code).
+- Finally, we plot the single solid line on both the lanes as output. Some of the examples are shown below:
 
 ---
 
-***Potential shortcomings***
+***Potential shortcomings:***
 
-•	Our Self-Driving car probably need more than a polygon mask to increase it’s perception of roads. Like roads with curves, damaged lanes, various night time-only scenarios, need more than a mask and straight lines for our car to figure out how to actually rule the roads.
-•	Canny edge detection is great as it goes but is not reliable as it can detect objects other than lane lines. I think our car can manage up to most extent but at some point, it will face trouble classifying objects to lane lines.
-•	Lane lines intensity (low, high, dim, shadows etc) varies accordingly by changing Canny’s threshold parameters. It is not flexible as it can mess up with the gradients and lines might not even be detected in some cases. (causes flickering)
-•	The lanes could intersect and overlap with each other if the region masking isn’t done accurately.
-•	Parameter tuning is too sensitive and above all can seriously mess up in refining line extrapolation.
+- Our Self-Driving car probably need more than a polygon mask to increase it’s perception of roads. Like roads with curves, damaged lanes, various night time-only scenarios, need more than a mask and straight lines for our car to figure out how to actually rule the roads.
+- Canny edge detection is great as it goes but is not reliable as it can detect objects other than lane lines. I think our car can manage up to most extent but at some point, it will face trouble classifying objects to lane lines.
+- Lane lines intensity (low, high, dim, shadows etc) varies accordingly by changing Canny’s threshold parameters. It is not flexible as it can mess up with the gradients and lines might not even be detected in some cases. (causes flickering)
+- The lanes could intersect and overlap with each other if the region masking isn’t done accurately.
+- Parameter tuning is too sensitive and above all can seriously mess up in refining line extrapolation.
 
-***Possible improvements***
+***Possible improvements:***
 
-•	Evaluating a deep learning approach to update all parameters independently with respect to changes in real-time.
-•	Introducing a reliable classifier to detect objects and classify them with respect to lane lines.
-•	Optional: We can use a median filter to remove further noise and blobs between the video frames. A matlab example which I’ve used for my background detection project:
+- Evaluating a deep learning approach to update all parameters independently with respect to changes in real-time.
+- Introducing a reliable classifier to detect objects and classify them with respect to lane lines.
+- Optional: We can use a median filter to remove further noise and blobs between the video frames. A matlab example which I’ve used for my background detection project:
 (FilteredImage=medfilt2(Binaryimage,[5 5]); #applies med filter to output image (binary in this case with order 5)
-•	Converting the image into a different color space like HSV, HSL can help in robust object discrimination in conditions with varying light intensities, shadows etc.
-•	Threshold parameters have to be refined to perfection to avoid any possible flickering in the video frames.
-•	And of course, spending more time on tuning the parameters!
+- Converting the image into a different color space like HSV, HSL can help in robust object discrimination in conditions with varying light intensities, shadows etc.
+- Threshold parameters have to be refined to perfection to avoid any possible flickering in the video frames.
+- And of course, spending more time on tuning the parameters!
 
 ---
 
@@ -98,4 +98,4 @@ https://peteris.rocks/blog/extrapolate-lines-with-numpy-polyfit/
 
 ---
 
-- Copyright 2020 © <a href="http://saimj7.github.io" target="_blank">Sai_Mj</a>.
+- Copyright 11-05-2018 © <a href="http://saimj7.github.io" target="_blank">Sai_Mj</a>.
