@@ -1,5 +1,5 @@
-## Dataset 
+## Overview
 
-- download Training dataset, test dataset, extended anotations including class ids from http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset#Downloads
-- Preprocess_Training and Preprocess_Testing converts data to npz format
-- Numpy, Pandas, Tensorflow
+- Download the training, test datasets, extended anotations including the class ids from here: http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset#Downloads
+- Preprocess-Training and Preprocess-Testing convert the data to npz format.
+- Common libraries used: Numpy, Pandas, Tensorflow
