@@ -1,6 +1,6 @@
 # Autonomous-Driving
 Building autonomous vehicles from the ground up!
-![ad](https://imgur.com/UvHELXP)
+![ad](https://imgur.com/UvHELXP.png)
 
 # Finding lane lines
 
