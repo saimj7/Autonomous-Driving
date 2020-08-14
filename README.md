@@ -1,11 +1,6 @@
 # Autonomous-Driving
 Building autonomous vehicles from the ground up!
 
-<a href="https://saimj7.github.io/><img src="[Imgur](https://imgur.com/UvHELXP)" title="AD" alt="AD"></a>
-
-<!-- [![FVCproductions](https://avatars1.githubusercontent.com/u/4284691?v=3&s=200)](http://fvcproductions.com) -->
-
-
 # Finding lane lines
 
 > Let's get started with the pipeline:
