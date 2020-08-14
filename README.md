@@ -1,5 +1,4 @@
-# Autonomous-Driving
-Building autonomous vehicles from the ground up!
+# Autonomous-Driving 
 ![ad](https://imgur.com/UvHELXP.png)
 
 # Finding lane lines
