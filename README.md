@@ -1,6 +1,8 @@
 # Autonomous-Driving 
 ![ad](https://imgur.com/UvHELXP.png)
 
+![ad](https://imgur.com/spGMvAb.gif)
+
 # Finding lane lines
 
 > Let's get started with the pipeline:
@@ -11,16 +13,22 @@
 - Suppressing noise by Gaussian Blur algorithm.
 - This algorithm from OpenCV averages gradients and suppresses additional noise in the image by choosing the kernel_size as a parameter. A larger kernel_size implies averaging, or smoothing, over a larger area (5 in this case looks better).
 
+![ad](https://imgur.com/EgYrIeI.png)
+
 ## 2. Canny to Detect Lane Lines:
 
 - This algorithm detects the edges in an image by means of applying thresholds and taking gradients (rapid changes in brightness). This uses two parameters namely, low_threshold and high_threshold to pass a detected edge or not.
 - Generally, this algorithm will first detect strong edge (strong gradient) pixels above the high_threshold, and reject pixels below the low_threshold. Next, pixels with values between the low_threshold and high_threshold will be included as long as they are connected to strong edges.
 - As far as a ratio of low_threshold to high_threshold, John Canny himself recommended a low to high ratio of 1:2 or 1:3.
 
+![ad](https://imgur.com/Kljt9IL.png)
+
 ## 3. Region Masking: 
 
 - In order to avoid overlapping of lane lines and detection of any unnecessary objects, it is important that we specify the region of interest in an image. We only consider pixels where we expect lanes lines to be, in this case, from a mounted front facing camera.
 - In this step, We define a four sided polygon which can mask out extra edges apart from our region of interest. Parameters like vertices of the polygon are considered (left_bottom, right_bottom, left_top, right_top).
+
+![ad](https://imgur.com/nu9d7UB.png)
 
 ## 4.	Hough Transform to Find and Extract Lane Lines from Canny Edges: 
 
@@ -38,6 +46,8 @@
 
 The output from Hough Transform is shown below which is just a plot with small lines. We need to map out the full picture (full extent of the line till the end) for our Self-Driving car to better help in sensing. This is where averaging/extrapolating the lines comes into action!
 
+![ad](https://imgur.com/e6uECC4.png)
+
 > draw_lines function: To extrapolate the lines, the following modifications have been done:
 
 - First, we define the empty lists to work with (as seen in code and references).
@@ -46,6 +56,10 @@ The output from Hough Transform is shown below which is just a plot with small l
 - We then use polyfit function to fit a line to these points.
 - We now take average of slope and intercept line and derive upper and lower parts of the image (as seen in code).
 - Finally, we plot the single solid line on both the lanes as output. Some of the examples are shown below:
+
+![ad](https://imgur.com/jkPB7cZ.png)
+
+[ad](https://imgur.com/bT5pFRq.png)
 
 ---
 
@@ -62,7 +76,10 @@ The output from Hough Transform is shown below which is just a plot with small l
 - Evaluating a deep learning approach to update all parameters independently with respect to changes in real-time.
 - Introducing a reliable classifier to detect objects and classify them with respect to lane lines.
 - Optional: We can use a median filter to remove further noise and blobs between the video frames. A matlab example which I’ve used for my background detection project:
+
+```
 (FilteredImage=medfilt2(Binaryimage,[5 5]); #applies med filter to output image (binary in this case with order 5)
+```
 - Converting the image into a different color space like HSV, HSL can help in robust object discrimination in conditions with varying light intensities, shadows etc.
 - Threshold parameters have to be refined to perfection to avoid any possible flickering in the video frames.
 - And of course, spending more time on tuning the parameters!
