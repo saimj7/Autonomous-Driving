@@ -2,8 +2,8 @@
 ![ad](https://imgur.com/UvHELXP.png)
 
 <div align="center">
-![ad](https://imgur.com/lwyTbFk.gif)
-<p>Perfectly balanced</p>
+<img src=https://imgur.com/lwyTbFk.gif" >
+<p>Output demo!</p>
 </div>
 
 # Finding lane lines
