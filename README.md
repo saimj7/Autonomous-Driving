@@ -1,8 +1,10 @@
 # Autonomous-Driving 
 ![ad](https://imgur.com/UvHELXP.png)
 
-
+<div align="center">
 ![ad](https://imgur.com/lwyTbFk.gif)
+<p>Perfectly balanced</p>
+</div>
 
 # Finding lane lines
 
