@@ -1,7 +1,7 @@
 # Autonomous-Driving 
 ![ad](https://imgur.com/UvHELXP.png)
 
-![ad](https://imgur.com/spGMvAb.gif)
+![ad](https://imgur.com/FRX0XGe.gif)
 
 # Finding lane lines
 
@@ -59,7 +59,7 @@ The output from Hough Transform is shown below which is just a plot with small l
 
 ![ad](https://imgur.com/jkPB7cZ.png)
 
-[ad](https://imgur.com/bT5pFRq.png)
+![ad](https://imgur.com/bT5pFRq.png)
 
 ---
 
