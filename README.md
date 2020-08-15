@@ -2,7 +2,7 @@
 ![ad](https://imgur.com/UvHELXP.png)
 
 
-![ad](https://imgur.com/s2o5dNx.gif)
+![ad](https://imgur.com/lwyTbFk.gif)
 
 # Finding lane lines
 
