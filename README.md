@@ -16,7 +16,9 @@
 - Suppressing noise by Gaussian Blur algorithm.
 - This algorithm from OpenCV averages gradients and suppresses additional noise in the image by choosing the kernel_size as a parameter. A larger kernel_size implies averaging, or smoothing, over a larger area (5 in this case looks better).
 
-![ad](https://imgur.com/EgYrIeI.png)
+<div align="center">
+<img src=https://imgur.com/EgYrIeI.png" >
+</div>
 
 ## 2. Canny to Detect Lane Lines:
 
@@ -24,14 +26,18 @@
 - Generally, this algorithm will first detect strong edge (strong gradient) pixels above the high_threshold, and reject pixels below the low_threshold. Next, pixels with values between the low_threshold and high_threshold will be included as long as they are connected to strong edges.
 - As far as a ratio of low_threshold to high_threshold, John Canny himself recommended a low to high ratio of 1:2 or 1:3.
 
-![ad](https://imgur.com/Kljt9IL.png)
+<div align="center">
+<img src=https://imgur.com/Kljt9IL.png >
+</div>
 
 ## 3. Region Masking: 
 
 - In order to avoid overlapping of lane lines and detection of any unnecessary objects, it is important that we specify the region of interest in an image. We only consider pixels where we expect lanes lines to be, in this case, from a mounted front facing camera.
 - In this step, We define a four sided polygon which can mask out extra edges apart from our region of interest. Parameters like vertices of the polygon are considered (left_bottom, right_bottom, left_top, right_top).
 
-![ad](https://imgur.com/nu9d7UB.png)
+<div align="center">
+<img src=https://imgur.com/nu9d7UB.png >
+</div>
 
 ## 4.	Hough Transform to Find and Extract Lane Lines from Canny Edges: 
 
@@ -49,7 +55,9 @@
 
 The output from Hough Transform is shown below which is just a plot with small lines. We need to map out the full picture (full extent of the line till the end) for our Self-Driving car to better help in sensing. This is where averaging/extrapolating the lines comes into action!
 
-![ad](https://imgur.com/e6uECC4.png)
+<div align="center">
+<img src=https://imgur.com/e6uECC4.png >
+</div>
 
 > draw_lines function: To extrapolate the lines, the following modifications have been done:
 
@@ -60,9 +68,13 @@ The output from Hough Transform is shown below which is just a plot with small l
 - We now take average of slope and intercept line and derive upper and lower parts of the image (as seen in code).
 - Finally, we plot the single solid line on both the lanes as output. Some of the examples are shown below:
 
-![ad](https://imgur.com/jkPB7cZ.png)
+<div align="center">
+<img src=https://imgur.com/jkPB7cZ.png >
+</div>
 
-![ad](https://imgur.com/bT5pFRq.png)
+<div align="center">
+<img src=https://imgur.com/bT5pFRq.png >
+</div>
 
 ---
 
