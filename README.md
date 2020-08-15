@@ -1,7 +1,7 @@
 # Autonomous-Driving 
 ![ad](https://imgur.com/UvHELXP.png)
 
-![ad](https://imgur.com/FRX0XGe.gif)
+![ad](https://imgur.com/vRcBvIl.gif)
 
 # Finding lane lines
 
